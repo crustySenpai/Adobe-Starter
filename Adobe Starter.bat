@@ -28,6 +28,7 @@ if "%c%"=="1" goto product
 if "%c%"=="2" goto kill
 
 :product
+cls
 echo.
 echo Which one do you want to start:
 echo.
@@ -49,21 +50,30 @@ if "%c%"=="3" goto premiere
 echo.
 echo Starting Photoshop...
 start "" "photoshop.exe"
+cls
+echo.
 echo Photoshop started Sucessfully!
+echo.
 goto select_menu
 
 :encoder
 echo.
 echo Starting Media Encoder...
 start "" "Adobe Media Encoder.exe"
+cls
+echo.
 echo Media Encoder started Sucessfully!
+echo.
 goto select_menu
 
 :premiere
 echo.
 echo Starting Premiere Pro...
 start "" "Adobe Premiere Pro.exe"
+cls
+echo.
 echo Premiere Pro started Sucessfully!
+echo.
 goto select_menu
 
 :kill
@@ -78,9 +88,29 @@ taskkill /F /IM "AdobeNotificationClient.exe"
 taskkill /F /IM "AdobeUpdateService.exe"
 taskkill /F /IM "CCLibrary.exe"
 taskkill /F /IM "CCXProcess.exe"
+taskkill /F /IM "Adobe CEF Helper.exe"
 taskkill /F /IM "Adobe Desktop Service.exe"
 taskkill /F /IM "Creative Cloud Helper.exe"
+taskkill /F /IM "Creative Cloud.exe"
 taskkill /F /IM "CoreSync.exe"
+goto run_2
+
+:run_2
+rem just in case that not all processes where closed in the first run
+taskkill /F /IM "Adobe Premiere Pro.exe"
+taskkill /F /IM "Adobe Media Encoder.exe"
+taskkill /F /IM "photoshop.exe"
+taskkill /F /IM "AdobeIPCBroker.exe"
+taskkill /F /IM "AdobeNotificationClient.exe"
+taskkill /F /IM "AdobeUpdateService.exe"
+taskkill /F /IM "CCLibrary.exe"
+taskkill /F /IM "CCXProcess.exe"
+taskkill /F /IM "Adobe CEF Helper.exe"
+taskkill /F /IM "Adobe Desktop Service.exe"
+taskkill /F /IM "Creative Cloud Helper.exe"
+taskkill /F /IM "Creative Cloud.exe"
+taskkill /F /IM "CoreSync.exe"
+cls
 echo.
 echo Done!
 echo.
